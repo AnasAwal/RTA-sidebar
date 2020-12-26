@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:animated_icon_button/animated_icon_button.dart';
 
 class Tiles extends StatefulWidget {
   final selected;
@@ -13,6 +12,7 @@ class Tiles extends StatefulWidget {
 class _TilesState extends State<Tiles> {
   @override
   Widget build(BuildContext context) {
+    double targetValue = 54;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.start,
@@ -20,78 +20,103 @@ class _TilesState extends State<Tiles> {
         Container(
           width: Get.width,
           padding: EdgeInsets.only(top: 15),
-          child: AnimatedIconButton(
-            duration: Duration(milliseconds: 300),
-            onPressed: () {},
-            startIcon: Icon(
-              Icons.home_outlined,
-              color: Colors.blue,
-              size: 38,
-            ),
-            endIcon: Icon(
-              Icons.home_outlined,
-              color: Colors.white,
-              size: 50,
-            ),
-          ),
-        ),
-        Container(
-          width: Get.width,
-          padding: EdgeInsets.only(top: 15),
-          child: IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.equalizer_outlined,
-              color: Colors.white,
-              size: widget.selected == 2 ? 48 : 38,
-            ),
-          ),
-        ),
-        Container(
-          width: Get.width,
-          padding: EdgeInsets.only(top: 15),
-          child: IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.perm_identity_outlined,
+          child: TweenAnimationBuilder(
+            tween: Tween<double>(begin: 38, end: targetValue),
+            duration: Duration(milliseconds: 150),
+            builder: (BuildContext context, double size, Widget child) {
+              return IconButton(
+                iconSize: widget.selected == 1 ? size : 38,
                 color: Colors.white,
-                size: widget.selected == 3 ? 48 : 38,
-              )),
-        ),
-        Container(
-          width: Get.width,
-          padding: EdgeInsets.only(top: 15),
-          child: IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.search,
-              color: Colors.white,
-              size: widget.selected == 4 ? 48 : 38,
-            ),
+                onPressed: () {},
+                icon: child,
+              );
+            },
+            child: Icon(Icons.home_outlined),
           ),
         ),
         Container(
           width: Get.width,
           padding: EdgeInsets.only(top: 15),
-          child: IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.settings,
-              color: Colors.white,
-              size: widget.selected == 5 ? 48 : 38,
-            ),
+          child: TweenAnimationBuilder(
+            tween: Tween<double>(begin: 38, end: targetValue),
+            duration: Duration(milliseconds: 150),
+            builder: (BuildContext context, double size, Widget child) {
+              return IconButton(
+                iconSize: widget.selected == 2 ? size : 38,
+                color: Colors.white,
+                onPressed: () {},
+                icon: child,
+              );
+            },
+            child: Icon(Icons.equalizer),
           ),
         ),
         Container(
           width: Get.width,
           padding: EdgeInsets.only(top: 15),
-          child: IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.logout,
-              color: Colors.white,
-              size: widget.selected == 6 ? 48 : 38,
-            ),
+          child: TweenAnimationBuilder(
+            tween: Tween<double>(begin: 38, end: targetValue),
+            duration: Duration(milliseconds: 150),
+            builder: (BuildContext context, double size, Widget child) {
+              return IconButton(
+                iconSize: widget.selected == 3 ? size : 38,
+                color: Colors.white,
+                onPressed: () {},
+                icon: child,
+              );
+            },
+            child: Icon(Icons.perm_identity_outlined),
+          ),
+        ),
+        Container(
+          width: Get.width,
+          padding: EdgeInsets.only(top: 15),
+          child: TweenAnimationBuilder(
+            tween: Tween<double>(begin: 38, end: targetValue),
+            duration: Duration(milliseconds: 150),
+            builder: (BuildContext context, double size, Widget child) {
+              return IconButton(
+                iconSize: widget.selected == 4 ? size : 38,
+                color: Colors.white,
+                onPressed: () {},
+                icon: child,
+              );
+            },
+            child: Icon(Icons.search),
+          ),
+        ),
+        Container(
+          width: Get.width,
+          padding: EdgeInsets.only(top: 15),
+          child: TweenAnimationBuilder(
+            tween: Tween<double>(begin: 38, end: targetValue),
+            duration: Duration(milliseconds: 150),
+            builder: (BuildContext context, double size, Widget child) {
+              return IconButton(
+                iconSize: widget.selected == 5 ? size : 38,
+                color: Colors.white,
+                onPressed: () {},
+                icon: child,
+              );
+            },
+            child: Icon(Icons.settings),
+          ),
+        ),
+        Container(
+          width: Get.width,
+          padding: EdgeInsets.only(top: 15),
+          child: TweenAnimationBuilder(
+            tween: Tween<double>(begin: 38, end: targetValue),
+            duration: Duration(milliseconds: 150),
+            builder: (BuildContext context, double size, Widget child) {
+              return IconButton(
+                iconSize: widget.selected == 6 ? size : 38,
+                color: Colors.white,
+                onPressed: () {},
+                icon: child,
+              );
+            },
+            child: Icon(Icons.logout),
           ),
         ),
       ],

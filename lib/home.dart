@@ -17,7 +17,7 @@ class _HomeState extends State<Home> {
         children: [
           Container(
             width: Get.width * 0.2,
-            color: Colors.red,
+            color: Color.fromARGB(255, 67, 66, 93),
             height: Get.height,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -26,7 +26,7 @@ class _HomeState extends State<Home> {
                 Container(
                   width: Get.width,
                   padding: EdgeInsets.only(top: 30),
-                  color: Color.fromARGB(255, 67, 66, 93),
+                  color: Color.fromARGB(255, 60, 59, 84),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -65,14 +65,20 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 Tiles(
-                  selected: 6,
+                  selected: 1,
                 ),
               ],
             ),
           ),
           Container(
-            child: Text("ABSD"),
-          )
+            width: Get.width * 0.8,
+            child: Text(
+              " هون حطو \n القصص تبعكن و تركو width*0.8 ",
+              style: TextStyle(
+                fontSize: 48,
+              ),
+            ),
+          ),
         ],
       ),
     );
